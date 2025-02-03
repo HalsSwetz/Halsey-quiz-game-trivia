@@ -21,7 +21,7 @@
 //Need score to update with a correct/incorrect answer
 
 //Need a function for win/lose - show a result. How to win? 
-//If you score > 80% then you win? Or if you get 5 questions in a row you win?
+//If you score > 80% then you win? if you get 1000 pts (or more than 10 correct)
 
 //Need to initialize the game
 //Need a callback to call the audio for 'correct' or 'incorrect' answer - stretch goal
@@ -30,12 +30,42 @@
 //'click' on the different buttons for multiple choices
 //'click' to submit answer
 //
+const quizQuestions = [
+    {
+    question: "",
+    choices: [", , , ,"],
+    answer: ""
+    }
+]
 
-
-const questionsElement = document.querySelector('#question');
+const questionElement = document.querySelector('#question');
 const choicesElement = document.querySelector('#questions');
 const submitBtn = document.querySelector('#submit');
 
 let score = 0;
 let question = 0;
+let display = 0;
 
+
+
+chooseAnswer = ((event) => {
+    const selectedButton = event.target;
+    const answer = quizQuestions[currentQuestion].answer;
+
+    if(selectedButton.innerText === answer) {
+        score +100;
+    }
+
+    currentQuestion++;
+    if(currentQuestion < quizQuestions.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+    });
+
+    console.log(chooseAnswer);
+
+    showResult = () => {
+        quiz.innerHTML = `
+    }
