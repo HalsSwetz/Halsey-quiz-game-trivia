@@ -32,11 +32,29 @@
 //
 
 
-// const quizData = [
-//     {
-      
-//     }
-//   ];
+const quizData = [
+    {
+      question: "What cabbage dish is a staple in Korean cuisine?",
+      options: ["Sauerkraut", "Kimchi", "Coleslaw", "Pickled Cabbage"],
+      answer: "Kimchi"
+    },
+    {
+      question: "What sauce is used in a traditional Eggs Benedict dish?",
+      options: ["Bearnaise", "Alfredo", "Hollandaise", "Bechamel"],
+      answer: "Hollandaise"
+    },
+    {
+      question: "What type of nut is added to chocolate to make Nutella?",
+      options: ["Almonds", "Peanuts", "Walnuts", "Hazelnuts"],
+      answer: "Hazelnuts"
+    },
+    {
+    question: "What type of nut is added to chocolate to make Nutella?",
+    options: ["Almonds", "Peanuts", "Walnuts", "Hazelnuts"],
+    answer: "Hazlenuts"
+     },
+    
+  ];
 
 
 
@@ -44,7 +62,7 @@
 
 const quizContainer = document.querySelector('#quiz-container');
 const questionElement = document.querySelector('#question');
-const optionsElement = document.querySelector('#options');
+const optionsElement = document.querySelector('.options-container');
 const startButton = document.querySelector('#start');
 const startScreen = document.querySelector('#start-screen');
 const totalScore = document.querySelector('#score');
@@ -59,10 +77,15 @@ const optionFour = document.querySelector('#option-four');
 let score = 0;
 let currentQuestionIndex = 0;
 
+const resetOptions = () => {
+    optionOne.removeEventListener('click', handleClick);
+    optionTwo.removeEventListener('click', handleClick);
+    optionThree.removeEventListener('click', handleClick);
+    optionFour.removeEventListener('click', handleClick);
+};
 
 
-
-const loadQuestion = (event) => {
+const loadQuestion = () => {
     const currentQuestion = quizData[currentQuestionIndex];
     questionElement.innerText = currentQuestion.question;
 
@@ -73,15 +96,21 @@ const loadQuestion = (event) => {
 
     resultElement.innerText = "";
 
-    optionOne.onclick = () => checkAnswer(optionOne.innerText);
-    optionTwo.onclick = () => checkAnswer(optionTwo.innerText);
-    optionThree.onclick = () => checkAnswer(optionThree.innerText);
-    optionFour.onclick = () => checkAnswer(optionFour.innerText);
+    // const options = [optionOne, optionTwo, optionThree, optionFour];
+
+    // options.forEach(option => {
+    //     option.addEventListener('click', () => checkAnswer(option.innerText));
+    // });
+    resetOptions();
+    optionOne.addEventListener('click',() => handleClick(optionOne.innerText));
+    optionTwo.addEventListener('click', () => handleClick(optionTwo.innerText));
+    optionThree.addEventListener('click', () => handleClick(optionThree.innerText));
+    optionFour.addEventListener('click', () => handleClick(optionFour.innerText));
 
     nextButton.style.display = "none";
     }
 
-const checkAnswer = (selectedOption) => {
+const handleClick = (selectedOption) => {
         const currentQuestion = quizData[currentQuestionIndex];
         
         if (selectedOption === currentQuestion.answer) {
@@ -94,7 +123,38 @@ const checkAnswer = (selectedOption) => {
         nextButton.style.display = "inline-block";
     }
 
+    const newQuestion = () => {
+        currentQuestionIndex++;
+    
+        if(currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        }   else {
+            showResult();
+        }
+    };
+    
+    
+    const showResult = () => {
+        questionElement.innerText = "Quiz Completed!";
+        optionsElement.style.display = "none";
 
+        nextButton.innerText = "Try Again!"
+        nextButton.style.display = "inline-block";
+
+        nextButton.removeEventListener('click', newQuestion);
+        nextButton.addEventListener('click', () => {
+            score = 0;
+            currentQuestionIndex = 0;
+        
+        totalScore.innerText = score;
+        optionsElement.style.display = "block";
+
+        nextButton.innerText = "Next";
+        nextButton.style.display = "none";
+
+        loadQuestion();
+        });
+    };
 
 
 startButton.addEventListener('click', () => {
