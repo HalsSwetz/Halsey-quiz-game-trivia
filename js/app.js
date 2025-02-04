@@ -49,9 +49,9 @@ const quizData = [
       answer: "Hazelnuts"
     },
     {
-    question: "What type of nut is added to chocolate to make Nutella?",
-    options: ["Almonds", "Peanuts", "Walnuts", "Hazelnuts"],
-    answer: "Hazlenuts"
+    question: "What type of cheese is traditionally used in making Tiramisu?",
+    options: ["Ricotta", "Parmesan", "Mascarpone", "Cream Cheese"],
+    answer: "Mascarpone"
      },
     
   ];
@@ -77,14 +77,6 @@ const optionFour = document.querySelector('#option-four');
 let score = 0;
 let currentQuestionIndex = 0;
 
-const resetOptions = () => {
-    optionOne.removeEventListener('click', handleClick);
-    optionTwo.removeEventListener('click', handleClick);
-    optionThree.removeEventListener('click', handleClick);
-    optionFour.removeEventListener('click', handleClick);
-};
-
-
 const loadQuestion = () => {
     const currentQuestion = quizData[currentQuestionIndex];
     questionElement.innerText = currentQuestion.question;
@@ -102,6 +94,7 @@ const loadQuestion = () => {
     //     option.addEventListener('click', () => checkAnswer(option.innerText));
     // });
     resetOptions();
+
     optionOne.addEventListener('click',() => handleClick(optionOne.innerText));
     optionTwo.addEventListener('click', () => handleClick(optionTwo.innerText));
     optionThree.addEventListener('click', () => handleClick(optionThree.innerText));
@@ -145,15 +138,21 @@ const handleClick = (selectedOption) => {
         nextButton.addEventListener('click', () => {
             score = 0;
             currentQuestionIndex = 0;
+            totalScore.innerText = score;
         
-        totalScore.innerText = score;
-        optionsElement.style.display = "block";
+            optionsElement.style.display = "block";
+            nextButton.innerText = "Next";
+            nextButton.style.display = "none";
 
-        nextButton.innerText = "Next";
-        nextButton.style.display = "none";
-
-        loadQuestion();
+            loadQuestion();
         });
+    };
+
+    const resetOptions = () => {
+        optionOne.removeEventListener('click', handleClick);
+        optionTwo.removeEventListener('click', handleClick);
+        optionThree.removeEventListener('click', handleClick);
+        optionFour.removeEventListener('click', handleClick);
     };
 
 
