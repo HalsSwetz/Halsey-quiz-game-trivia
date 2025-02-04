@@ -13,21 +13,27 @@
     <h1>Winner Winner Chicken Dinner</h1>
   </header>
   <h2>Score 1000 points to<em>Win</em></h2>
-   
-    <div class="score">
-        <input id="scoreboard" >
+   <div id="start-screen">
+    <button id="start">Start Quiz</button>
+   </div>
+
+    <div id="quiz-container">
+        <div id="scoreboard">
+            <h3>Score: <span id="score">0</span></h3>
     </div> 
 
-    <div class="show">
-        <button id="start">Start</button>
+    <div class="quiz">
         <div id="question"></div>
+        <div id="choices"></div>
+            <button id="choice-one"></button>
+            <button id="choice-two"></button>
+            <button id="choice-three"></button>
+            <button id="choice-four"></button>
         <div id="result"></div>
-        <!-- <button id="submit">Submit</button> -->
+       
     </div>
 
-    <div id="directions">
-        <p>Click the Start button to begin game</p>
-    </div>
+    
 
 
 <footer>

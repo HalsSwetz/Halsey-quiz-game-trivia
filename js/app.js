@@ -30,42 +30,65 @@
 //'click' on the different buttons for multiple choices
 //'click' to submit answer
 //
-const quizQuestions = [
-    {
-    question: "",
-    choices: [", , , ,"],
-    answer: ""
-    }
-]
+// const quizQuestions = [
+//     {
+//     question: "",
+//     choices: [", , , ,"],
+//     answer: ""
+//     }
+// ]
 
+const quizData = [
+    {
+      
+    }
+  ];
+
+
+const quizContainer = document.querySelector('#quiz-container');
 const questionElement = document.querySelector('#question');
-const choicesElement = document.querySelector('#questions');
-const submitBtn = document.querySelector('#submit');
+const choicesElement = document.querySelector('#choices');
+const startButton = document.querySelector('#start');
+const startScreen = document.querySelector('#start-screen');
+const totalScore = document.querySelector('#score');
+const resultElement = document.querySelector('#result');
+
 
 let score = 0;
-let question = 0;
-let display = 0;
+let currentQuestion = 0;
 
 
 
-chooseAnswer = ((event) => {
-    const selectedButton = event.target;
-    const answer = quizQuestions[currentQuestion].answer;
+const startGame = () => {
+    startButton.addEventListener('click');
+    console.log("I am clicked");
+}
 
-    if(selectedButton.innerText === answer) {
-        score +100;
-    }
-
+const newQuestion = (event) => {
     currentQuestion++;
-    if(currentQuestion < quizQuestions.length) {
-        showQuestion();
-    } else {
+    if(currentQuestion < quizData.length) {
+        loadQuestion();
+    }   else {
         showResult();
     }
-    });
+}
 
-    console.log(chooseAnswer);
+// const addScore =
 
-    showResult = () => {
-        quiz.innerHTML = `
-    }
+// const resultGame =
+
+
+
+
+startButton.addEventListener('click', () => {
+
+})
+
+
+
+
+
+
+
+
+
