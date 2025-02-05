@@ -155,16 +155,16 @@ const loadQuestion = () => {
     resultElement.innerText = "";
     
 
-    optionOne.addEventListener('click',() => handleClick(optionOne.innerText));
-    optionTwo.addEventListener('click', () => handleClick(optionTwo.innerText));
-    optionThree.addEventListener('click', () => handleClick(optionThree.innerText));
-    optionFour.addEventListener('click', () => handleClick(optionFour.innerText));
+    optionOne.addEventListener('click',() => handleClick(optionOne.innerText, event));
+    optionTwo.addEventListener('click', () => handleClick(optionTwo.innerText, event));
+    optionThree.addEventListener('click', () => handleClick(optionThree.innerText, event));
+    optionFour.addEventListener('click', () => handleClick(optionFour.innerText, event));
 
     nextButton.style.display = "none";
-    };
+};
 
 
-const handleClick = (selectedOption) => {
+const handleClick = (selectedOption, event) => {
         const currentQuestion = quizData[currentQuestionIndex];
         
         if (selectedOption === currentQuestion.answer) {
@@ -175,7 +175,9 @@ const handleClick = (selectedOption) => {
         }
         totalScore.innerText = score;
         nextButton.style.display = "inline-block";
-    };
+
+        event.target.disabled = true;
+};
 
 
     const newQuestion = () => {
@@ -186,7 +188,7 @@ const handleClick = (selectedOption) => {
         }   else {
             showResult();
         }
-    };
+};
     
     
     const showResult = () => {
@@ -197,6 +199,7 @@ const handleClick = (selectedOption) => {
         if(totalScore.innerText < 1000) {
             questionElement.innerText = "You Lost! Try Again?";
         }
+        resultElement.innerText = "Don't be a Chicken! Try to get a perfect score!";
         optionsElement.style.display = "none";
 
         nextButton.innerText = "Try Again!"
@@ -204,40 +207,37 @@ const handleClick = (selectedOption) => {
 
         nextButton.removeEventListener('click', newQuestion);
         nextButton.addEventListener('click', resetGame);
-    };
+};
 
     const resetGame = () => {
             score = 0;
             currentQuestionIndex = 0;
             totalScore.innerText = score;
 
-            // nextButton.innerText = "Next";
-            // resultElement.innerText= "";
-            optionsElement.style.display = "flex";
-        
-            // optionsElement.style.display = "block";
-            // nextButton.innerText = "Next";
+            nextButton.innerText = "Next";
             quizContainer.style.display = "none";
-            startScreen.style.display = "block";
-            
+            startScreen.style.display = "flex";
+            optionsElement.style.display = "flex";
+
             nextButton.style.display = "none";
             startButton.disabled = false;
-            loadQuestion();
-    };
+
+            nextButton.removeEventListener('click', resetGame);
+            nextButton.addEventListener('click', newQuestion);    
+};
 
 
     
 
 
-startButton.addEventListener('click', () => {
-    startScreen.style.display = "none";
-    quizContainer.style.display = "block";
-    loadQuestion();
-    startButton.disabled = true;
-    
+    startButton.addEventListener('click', () => {
+        startScreen.style.display = "none";
+        quizContainer.style.display = "block";
+        startButton.disabled = true;
+        loadQuestion(); 
 });
 
-nextButton.addEventListener('click', newQuestion);
+    nextButton.addEventListener('click', newQuestion);
 
 
 
