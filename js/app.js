@@ -1,36 +1,3 @@
-//Steps for building - things needed:
-
-//README: 
-
-//HTML: questions/ multiple choice answers, submit answer(btn), score total (input)
-
-//CSS: Flex style page and buttons(questions/submit answer/points/win-lose)
-
-//Pseudocode
-//Set up an array of objects containing {question/multiple choices/answer} data
-
-//Set up cached elements - question, choices, submit answer, audio
-
-//Have a scoreboard with a value added for a question answered correctly, and total score
-// -----how does a player lose? negative points for incorrect. 80% correct win condition, under that is losing condition
-
-//Functions:
-//Click a button and get a random question with  multiple choices
-//Need to be able to choose an answer
-//Need to be able to submit answer
-//Need score to update with a correct/incorrect answer
-
-//Need a function for win/lose - show a result. How to win? 
-//if you get 1000 pts (or more than 10 correct)
-
-//Need to initialize the game
-//Need a callback to call the audio for 'correct' or 'incorrect' answer - stretch goal
-
-//Event listeners
-//'click' on the different buttons for multiple choices
-//'click' to submit answer
-//
-
 
 const quizData = [
     {
@@ -107,8 +74,7 @@ const quizData = [
     question: "What type of tea is traditionally used in a Japanese tea ceremony?",
     options: ["Oolong", "Sencha", "Jasmine", "Matcha"],
     answer: "Matcha"
-    },
-    
+    } 
   ];
 
 
@@ -188,7 +154,7 @@ const handleClick = (selectedOption, event) => {
         }   else {
             showResult();
         }
-};
+    };
     
     
     const showResult = () => {
@@ -207,7 +173,7 @@ const handleClick = (selectedOption, event) => {
 
         nextButton.removeEventListener('click', newQuestion);
         nextButton.addEventListener('click', resetGame);
-};
+    };
 
     const resetGame = () => {
             score = 0;
@@ -224,18 +190,14 @@ const handleClick = (selectedOption, event) => {
 
             nextButton.removeEventListener('click', resetGame);
             nextButton.addEventListener('click', newQuestion);    
-};
-
-
-    
-
+    };
 
     startButton.addEventListener('click', () => {
         startScreen.style.display = "none";
         quizContainer.style.display = "block";
         startButton.disabled = true;
         loadQuestion(); 
-});
+    });
 
     nextButton.addEventListener('click', newQuestion);
 

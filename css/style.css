@@ -26,14 +26,15 @@ h2 {
     padding: 30px;
 }
 #chicken-image-top {
-    display: flex;
+    /* display: flex;
     align-items: flex-start;
     justify-content: space-around;
     height: 200px;
     border-radius: 12px;
     padding-left: 2em;
-    padding-top: 2em;
+    padding-top: 2em; */
 }
+
 #chicken-image {
     display: flex;
     align-items: center;
@@ -43,6 +44,7 @@ h2 {
     opacity: .4;
     border-radius: 40px;
 }
+
 h3 {
     font-family: Orbitron, sans-serif;
     font-size: 42px;
@@ -74,19 +76,8 @@ h3 {
     justify-content: center;
     
 }
-/* input {
-    font-family: permanent marker, sans-serif;
-    background-color: antiquewhite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: center;
-    width: 300px;
-    padding: 5px;
-    margin: auto;
-    color: rgb(16, 15, 15);
-    font-size: 60px;    
-} */
+
+
  .quiz > div {
     display: flex;
     justify-content: center;
