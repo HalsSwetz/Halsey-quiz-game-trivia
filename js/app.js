@@ -169,7 +169,6 @@ const handleClick = (selectedOption) => {
         
         if (selectedOption === currentQuestion.answer) {
             score = score + 100;
-            console.log(score);
             resultElement.innerText = "Correct!";
         } else {
             resultElement.innerText = "Incorrect!";
@@ -192,24 +191,40 @@ const handleClick = (selectedOption) => {
     
     const showResult = () => {
         questionElement.innerText = "Quiz Completed!";
+        if(totalScore.innerText >= 1000) {
+            questionElement.innerText = "You Win!";
+        }
+        if(totalScore.innerText < 1000) {
+            questionElement.innerText = "You Lost! Try Again?";
+        }
         optionsElement.style.display = "none";
 
         nextButton.innerText = "Try Again!"
         nextButton.style.display = "inline-block";
 
         nextButton.removeEventListener('click', newQuestion);
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('click', resetGame);
+    };
+
+    const resetGame = () => {
             score = 0;
             currentQuestionIndex = 0;
             totalScore.innerText = score;
-        
-            optionsElement.style.display = "block";
-            nextButton.innerText = "Next";
-            nextButton.style.display = "none";
 
+            // nextButton.innerText = "Next";
+            // resultElement.innerText= "";
+            optionsElement.style.display = "flex";
+        
+            // optionsElement.style.display = "block";
+            // nextButton.innerText = "Next";
+            quizContainer.style.display = "none";
+            startScreen.style.display = "block";
+            
+            nextButton.style.display = "none";
+            startButton.disabled = false;
             loadQuestion();
-        });
     };
+
 
     
 
@@ -218,6 +233,8 @@ startButton.addEventListener('click', () => {
     startScreen.style.display = "none";
     quizContainer.style.display = "block";
     loadQuestion();
+    startButton.disabled = true;
+    
 });
 
 nextButton.addEventListener('click', newQuestion);
