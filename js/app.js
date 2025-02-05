@@ -87,6 +87,7 @@ const totalScore = document.querySelector('#score');
 const resultElement = document.querySelector('#result');
 const nextButton = document.querySelector('#next-button');
 
+const chickenAlarm = new Audio('assets/chicken-alarm.mp3');
 
 let score = 0;
 let currentQuestionIndex = 0;
@@ -201,7 +202,10 @@ const handleClick = (selectedOption, event) => {
 
     nextButton.addEventListener('click', newQuestion);
 
-
+    nextButton.addEventListener('click', (evt) => {
+        chickenAlarm.volume = .25
+        chickenAlarm.play()
+    });
 
 
 

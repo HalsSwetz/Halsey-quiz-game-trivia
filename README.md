@@ -28,7 +28,7 @@
 - Javascript
 
 ## Next Steps
-- Future enhancements of this game would include a much bigger selection of food trivia questions, ir order to make the game longer and more challenging. It is possible that by using an API, the game could have access to a great database of trivia questions of varying difficulties.
+- Future enhancements of this game would include a much bigger selection of food trivia questions, in order to make the game longer and more challenging. It is possible that by using an API, the game could have access to a great database of trivia questions of varying difficulties.
 
 - Another goal for the future development of the game is to include some animations for the *Start* screen, and for the *Winning/Losing* screens as well.  This could be an animated chicken giving the user either a thumbs-up or thumbs-down depending whether the user met the winning conditions of the game or not.
 
