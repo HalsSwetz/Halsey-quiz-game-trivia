@@ -25,15 +25,6 @@ h2 {
     justify-content: center;
     padding: 30px;
 }
-#chicken-image-top {
-    /* display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    height: 200px;
-    border-radius: 12px;
-    padding-left: 2em;
-    padding-top: 2em; */
-}
 
 #chicken-image {
     display: flex;
@@ -41,7 +32,7 @@ h2 {
     justify-content: center;
     flex-direction: center;
     height: 600px;
-    opacity: .4;
+    opacity: .5;
     border-radius: 40px;
 }
 
@@ -78,7 +69,7 @@ h3 {
 }
 
 
- .quiz > div {
+.quiz > div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -90,14 +81,27 @@ h3 {
     font-size: 32px;
     padding-left: 1em;
     padding-top: 1em;
-    /* center? */
+    
+}
+
+.chicken-top {
+    height: 220px
 }
 
 #result {
     font-family: Lobster, sans-serif;
-    font-size: 40px;
-    
+    font-size: 40px;  
 }
+
+.winning-chicken {
+    position:relative;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    width: 400px; 
+}
+
 
 #directions {
     font-family: permanent marker, sans-serif;

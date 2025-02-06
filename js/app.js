@@ -2,7 +2,7 @@
 const quizData = [
     {
     question: "What cabbage dish is a staple in Korean cuisine?",
-    options: ["Sauerkraut", "Kimchi", "Coleslaw", "Pickled Cabbage"],
+    options: ["Sauerkraut", "Kimchi", "Coleslaw", "Bulgogi"],
     answer: "Kimchi"
     },
     {
@@ -46,7 +46,7 @@ const quizData = [
     answer: "Almonds"
     },
     {
-    question: "What is the main ingredient in the Greek aperitive, Ouzo?",
+    question: "What is the main ingredient in the Greek aperitif, Ouzo?",
     options: ["Cinnamon", "Mint", "Anise", "Cloves"],
     answer: "Anise"
     },
@@ -56,7 +56,7 @@ const quizData = [
     answer: "Salmon"
     },
     {
-    question: "What is the name of the slow-cooked French dish made using meat and white beans?",
+    question: "What is the name of the French dish made with meat and white beans?",
     options: ["Cassoulet", "Ratatouille", "Coq au Vin", "Bouillabaisse"],
     answer: "Cassoulet"
     },
@@ -74,6 +74,36 @@ const quizData = [
     question: "What type of tea is traditionally used in a Japanese tea ceremony?",
     options: ["Oolong", "Sencha", "Jasmine", "Matcha"],
     answer: "Matcha"
+    },
+    {
+    question: "In which Italian city did Tiramisu originate?",
+    options: ["Treviso", "Florence", "Milan", "Rome"],
+    answer: "Treviso"
+    },
+    {
+    question: "Which fruit is the primary ingredient in the French dessert Tarte Tatin?",
+    options: ["Pear", "Peach", "Apple", "Cherry"],
+    answer: "Apple"
+    },
+    {
+    question: "What is the main ingredient in the Japanese dish Natto?",
+    options: ["Rice", "Soybeans", "Seaweed", "Fish"],
+    answer: "Soybeans"
+    },
+    {
+    question: "What is the main ingredient of the Greek dish Taramasalata?",
+    options: ["Chickpeas", "Yogurt", "Cucumber", "Fish Eggs"],
+    answer: "Fish Eggs"
+    },
+    {
+    question: "What type of baked good is a Berliner?",
+    options: ["Pretzel", "Apple Strudel", "Jelly Doughnut", "Cinnamon Roll"],
+    answer: "Jelly Doughnut"
+    },
+    {
+    question: "Which country is the largest producer of Saffron?",
+    options: ["Iran", "Morocco", "Spain", "India"],
+    answer: "Iran"
     } 
   ];
 
@@ -163,7 +193,7 @@ const handleClick = (selectedOption, event) => {
     const showResult = () => {
         questionElement.innerText = "Quiz Completed!";
         if(totalScore.innerText >= 1000) {
-            questionElement.innerText = "You Win!";
+            questionElement.innerText = "Winner Winner Chicken Dinner!";
         }
         if(totalScore.innerText < 1000) {
             questionElement.innerText = "You Lost! Try Again?";
@@ -177,6 +207,26 @@ const handleClick = (selectedOption, event) => {
         nextButton.removeEventListener('click', newQuestion);
         nextButton.addEventListener('click', resetGame);
     };
+
+    const showImage = (image) => {
+        const image = document.createElement("img");
+            image.src="assets/chickenYES.png";
+            image.alt="Cartoon rooster with exaggerated thumbs up";
+            image.classList.add("winning-chicken");
+            document.body.appendChild(image);
+    };
+
+    const showLosingImage = (image) => {
+        const losingImage = document.createElement("img");
+            image.src="assets/chickenNO.png";
+            image.alt="Cartoon rooster with exaggerated thumbs down";
+            image.classList.add("losing-chicken");
+            document.body.appendChild(image);
+    }
+
+
+
+    let isImageAdded = false;
 
     const resetGame = () => {
             score = 0;
@@ -192,8 +242,18 @@ const handleClick = (selectedOption, event) => {
             startButton.disabled = false;
 
             nextButton.removeEventListener('click', resetGame);
-            nextButton.addEventListener('click', newQuestion);    
+            nextButton.addEventListener('click', newQuestion);
+            
+            if (!isImageAdded) {
+            
+            isImageAdded = true;
+            }
+            if (currentImage) {
+                currentImage.remove();
+            }
+               
     };
+    
 
     startButton.addEventListener('click', () => {
         startScreen.style.display = "none";
