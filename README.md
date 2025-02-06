@@ -15,12 +15,12 @@
 - After each question simply click the *Next* button, and try to answer the next trivia question correctly.
 - When the quiz is completed, you will receive a winning message if you eclipsed 1000 points (or 10 correct answers), otherwise you will receive a losing message and be prompted to not be a chicken and *Try Again*!
 
-<!-- planning materials? -->
 
 ## Attributions:
 - [FreePik website with cartoon chicken images](https://www.freepik.com/free-photos-vectors/cartoon-chicken).
 - [Free custom cursor links](https://www.cursor.cc/?action=icon&file_id=168480).
 - [Runaway Games 50 food trivia questions](https://www.runaway.games/blog/food-trivia-questions).
+- [Freesound-Community and Stefon_Grace royalty free sound effects](https://pixabay.com/).
 
 ### Technologies used in the making of this game:
 - HTML
@@ -32,5 +32,4 @@
 
 - Another goal for the future development of the game is to include some animations for the *Start* screen, and for the *Winning/Losing* screens as well.  This could be an animated chicken giving the user either a thumbs-up or thumbs-down depending whether the user met the winning conditions of the game or not.
 
-- Another enhancement which could be a fun addition would be attaching audio to a correct answer selection, and to an incorrect selection.
-
+- Another enhancement which could be a fun addition would be a leaderboard if there is a larger library of questions with more difficulty. 

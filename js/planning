@@ -1,0 +1,30 @@
+//Set up an array of objects containing {question/multiple choices/answer} data
+
+//Set up cached elements - question, choices, submit answer, audio
+
+//Have a scoreboard with a value added for a question answered correctly, and total score
+
+
+//Functions:
+//Click a button and get a question with multiple choices with buttons to click to choose your answer
+//------Need to be able to choose an answer
+//------Need to be able to submit answer
+//------Need score to update with a correct answer
+
+//Need a function for win/lose - show a result:
+//------if you get 1000 pts, that is a win. Below that is a loss
+//------Needs to prompt to play again, and reset the game
+
+//Need to initialize the game when the Start button is clicked
+
+
+//Event listeners
+//Need an event listener for a 'click' on the different buttons for multiple choices
+//Need an event listener to call the audio for specific button click
+
+//A user wants to have a clear starting action to begin the game
+//A user wants to have questions appear in an approachable format where action to be taken is clear
+//A user wants some questions included that are not so easy/obvious as to make the first playthrough the only one
+//A user wants a simple but visually appealing game screen (colors, buttons, fonts, etc.)
+//A user wants to know what the winning condition is, and know if they won or lost
+//A user wants to clearly see how they can play again

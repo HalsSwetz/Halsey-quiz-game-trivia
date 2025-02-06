@@ -89,6 +89,7 @@ const nextButton = document.querySelector('#next-button');
 
 const chickenAlarm = new Audio('assets/chicken-alarm.mp3');
 const gameStart = new Audio('assets/game-start.mp3')
+const nextQuestion = new Audio('assets/next-question.mp3');
 
 let score = 0;
 let currentQuestionIndex = 0;
@@ -204,13 +205,13 @@ const handleClick = (selectedOption, event) => {
     nextButton.addEventListener('click', newQuestion);
 
     nextButton.addEventListener('click', (evt) => {
-        chickenAlarm.volume = .25
-        chickenAlarm.play()
+        nextQuestion.volume = .25
+        nextQuestion.play()
     });
 
     startButton.addEventListener('click', (evt) => {
-        gameStart.volume = .25
-        gameStart.play()
+        chickenAlarm.volume = .25
+        chickenAlarm.play()
     });
 
 
