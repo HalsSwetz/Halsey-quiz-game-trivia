@@ -1,4 +1,4 @@
-![A cartoon chicken mascot giving the thumbs up](chickenimage.jpg)
+![A cartoon chicken mascot giving the thumbs up](/assets/chickenimage.jpg)
 
 # ***Winner Winner Chicken Dinner*** 
 
