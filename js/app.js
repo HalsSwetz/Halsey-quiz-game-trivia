@@ -165,7 +165,7 @@ const loadQuestion = () => {
 
 const handleClick = (selectedOption, event) => {
         const currentQuestion = quizData[currentQuestionIndex];
-        
+
         if (selectedOption === currentQuestion.answer) {
             score = score + 100;
             resultElement.innerText = "Correct!";
@@ -228,11 +228,11 @@ const handleClick = (selectedOption, event) => {
             nextButton.addEventListener('click', newQuestion);
             
             if (!isImageAdded) {
-                const image = document.createElement("img");
-                image.src="assets/chickenYES.png";
-                image.alt="Cartoon rooster with exaggerated thumbs up";
-                image.classList.add("winning-chicken");
-                document.body.appendChild(image);
+            const image = document.createElement("img");
+            image.src="assets/chickenYES.png";
+            image.alt="Cartoon rooster with exaggerated thumbs up";
+            image.classList.add("winning-chicken");
+            document.body.appendChild(image);
         
             isImageAdded = true;
             }
@@ -242,7 +242,6 @@ const handleClick = (selectedOption, event) => {
                
     };
     
-
     startButton.addEventListener('click', () => {
         startScreen.style.display = "none";
         quizContainer.style.display = "block";
