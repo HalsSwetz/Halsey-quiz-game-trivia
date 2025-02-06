@@ -208,6 +208,15 @@ const handleClick = (selectedOption, event) => {
         nextButton.addEventListener('click', resetGame);
     };
 
+//this shuffle function was shared on the classroom slack, and I used it to shuffle the quiz data array
+//apparently it's called the Fisher-Yates algorithm
+
+    const shuffleArray = (array) => {
+        for(let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
 
     let isImageAdded = false;
 
@@ -215,6 +224,8 @@ const handleClick = (selectedOption, event) => {
             score = 0;
             currentQuestionIndex = 0;
             totalScore.innerText = score;
+
+            shuffleArray(quizData);
 
             nextButton.innerText = "Next";
             quizContainer.style.display = "none";
