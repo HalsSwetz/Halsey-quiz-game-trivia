@@ -68,7 +68,6 @@ h3 {
     
 }
 
-
 .quiz > div {
     display: flex;
     justify-content: center;
@@ -101,7 +100,6 @@ h3 {
     height: auto;
     width: 400px; 
 }
-
 
 #directions {
     font-family: permanent marker, sans-serif;

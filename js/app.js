@@ -208,23 +208,6 @@ const handleClick = (selectedOption, event) => {
         nextButton.addEventListener('click', resetGame);
     };
 
-    const showImage = (image) => {
-        const image = document.createElement("img");
-            image.src="assets/chickenYES.png";
-            image.alt="Cartoon rooster with exaggerated thumbs up";
-            image.classList.add("winning-chicken");
-            document.body.appendChild(image);
-    };
-
-    const showLosingImage = (image) => {
-        const losingImage = document.createElement("img");
-            image.src="assets/chickenNO.png";
-            image.alt="Cartoon rooster with exaggerated thumbs down";
-            image.classList.add("losing-chicken");
-            document.body.appendChild(image);
-    }
-
-
 
     let isImageAdded = false;
 
@@ -245,12 +228,17 @@ const handleClick = (selectedOption, event) => {
             nextButton.addEventListener('click', newQuestion);
             
             if (!isImageAdded) {
-            
+                const image = document.createElement("img");
+                image.src="assets/chickenYES.png";
+                image.alt="Cartoon rooster with exaggerated thumbs up";
+                image.classList.add("winning-chicken");
+                document.body.appendChild(image);
+        
             isImageAdded = true;
             }
             if (currentImage) {
                 currentImage.remove();
-            }
+            }   
                
     };
     
@@ -278,4 +266,4 @@ const handleClick = (selectedOption, event) => {
 
 
 
-
+    
