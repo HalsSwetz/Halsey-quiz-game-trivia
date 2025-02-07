@@ -240,18 +240,14 @@ const handleClick = (selectedOption, event) => {
             
             if (!isImageAdded) {
             const image = document.createElement("img");
-            image.src="assets/chickenYES.png";
+            image.src="./assets/chickenYES.png";
             image.alt="Cartoon rooster with exaggerated thumbs up";
             image.classList.add("winning-chicken");
             document.body.appendChild(image);
         
             isImageAdded = true;
-            }
-            if (currentImage) {
-                currentImage.remove();
-            }   
-               
     };
+}    
     
     startButton.addEventListener('click', () => {
         startScreen.style.display = "none";
