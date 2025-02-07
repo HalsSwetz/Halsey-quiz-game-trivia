@@ -15,6 +15,7 @@
 - After each question simply click the *Next* button, and try to answer the next trivia question correctly.
 - When the quiz is completed, you will receive a winning message if you eclipsed 1000 points (or 10 correct answers), otherwise you will receive a losing message and be prompted to not be a chicken and *Try Again*!
 
+#### Please look in the planning file in Javascript to see planning documentation.
 
 ## Attributions:
 - Adobe Illustrator AI tool for generating chicken images.
