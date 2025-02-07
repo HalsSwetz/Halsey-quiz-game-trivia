@@ -247,7 +247,7 @@ const handleClick = (selectedOption, event) => {
         
             isImageAdded = true;
     };
-}    
+};    
     
     startButton.addEventListener('click', () => {
         startScreen.style.display = "none";
