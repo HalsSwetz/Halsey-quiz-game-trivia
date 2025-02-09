@@ -209,7 +209,7 @@ const handleClick = (selectedOption, event) => {
     };
 
 //this shuffle function was shared on the classroom slack, and I used it to shuffle the quiz data array
-//apparently it's called the Fisher-Yates algorithm
+//it's called the Fisher-Yates algorithm
 
     const shuffleArray = (array) => {
         for(let i = array.length - 1; i > 0; i--) {
